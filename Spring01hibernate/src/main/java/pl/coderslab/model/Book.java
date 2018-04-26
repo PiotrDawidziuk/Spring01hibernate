@@ -6,8 +6,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -23,14 +21,14 @@ public class Book {
     String author;
     @Min(value = 1, message="Rating nie moze byc mniejszy niz 1")
     @Max(value = 10, message="Rating nie moze byc wiekszy niz 10")
-    String rating;
+    Integer rating;
     String publisher;
     String description;
 
     public Book() {
     }
 
-    public Book(String title, String author, String rating, String publisher, String description) {
+    public Book(String title, String author, Integer rating, String publisher, String description) {
         this.title = title;
         this.author = author;
         this.rating = rating;
@@ -63,11 +61,11 @@ public class Book {
     }
 
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 

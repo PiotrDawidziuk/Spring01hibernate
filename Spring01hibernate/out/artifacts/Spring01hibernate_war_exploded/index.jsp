@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Main Menu</title>
   </head>
   <body>
   <p><a href="/addnew"><button>Dodaj Książkę</button></a>
@@ -19,6 +19,8 @@
     <a href="/lista"><button>Lista Autorów</button></a>
     <a href="/listp"><button>Lista Wydawców</button></a></p>
   <br>
-  <p><a href="/testowy"><button>TEST</button></a></p>
+  <p><a href="/testowy"><button>TEST</button></a>
+  <a href="/testowy2"><button>TEST 2</button></a>
+  </p>
   </body>
 </html>

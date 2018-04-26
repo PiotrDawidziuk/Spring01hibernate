@@ -20,11 +20,12 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     //public List<Book> findAllByPublisher(String name);
   //  public List<Book> findAllByRating(String rating);
 
-    @Query("SELECT b FROM Book b WHERE b.rating BETWEEN :min     AND :max")
-    public List <Book> findAllByRating(@Param("min")String min, @Param("max") String max);
+    @Query("SELECT b FROM Book b WHERE b.rating BETWEEN :min AND :max")
+    public List <Book> findAllByRating(@Param("min")Integer min, @Param("max") Integer max);
 
     @Query("SELECT b FROM Book b WHERE b.publisher= :publisher")
     public List <Book> findAllByPublisher(@Param("publisher")String publisher);
+
 
 
 }

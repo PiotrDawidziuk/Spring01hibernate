@@ -74,16 +74,21 @@ public class BookController {
 
     }
 
+    @RequestMapping("/confirm-deletebook/{id}")
+    public String confirmDeleteBook(@PathVariable long id, Model model) {
+        model.addAttribute("id", id);
+        return "form/deletebook";
+    }
+
     @RequestMapping("/deletebook/{id}")
-    @ResponseBody
     public String deleteBook(@PathVariable long id) {
         Book book = bookDao.findById(id);
         if (book != null) {
             bookDao.delete(book);
-            return "Book with Id " + book.getId() + " deleted.";
+            return "redirect:/list";
         }
 
-        return "Nie ma takiego Id";
+        return "nobookid";
     }
 
     @RequestMapping("/add2")
@@ -131,7 +136,7 @@ public class BookController {
 
     @GetMapping("/testowy")
     public String testowy (Model model){
-        List<Book> books = bookRepository.findAllByPublisher("PWN");
+        List<Book> books = bookRepository.findAllByRating(1,10);
         model.addAttribute("books", books);
         return "book_list";
     }

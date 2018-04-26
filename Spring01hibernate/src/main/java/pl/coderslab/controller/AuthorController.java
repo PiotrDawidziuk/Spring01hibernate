@@ -98,4 +98,11 @@ public class AuthorController {
         return bookDao.getBooks();
     }
 
+    @GetMapping("/testowy2")
+    public String testowy (Model model){
+        List<Author> authors = authorRepository.findAuthorByEmail("ad");
+        model.addAttribute("authors", authors);
+        return "author_list";
+    }
+
 }

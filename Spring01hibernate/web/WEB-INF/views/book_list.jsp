@@ -33,7 +33,7 @@
             <td>${book.description}</td>
             <td>${book.publisher}</td>
             <td>${book.author}</td>
-            <td> <a href="/deletebook/${book.id}"><button>usuń</button></a></td>
+            <td> <a href="/confirm-deletebook/${book.id}"><button>usuń</button></a></td>
             <td> <a href="/update/${book.id}"><button>Edytuj</button></a></td>
         </tr>
     </c:forEach>
