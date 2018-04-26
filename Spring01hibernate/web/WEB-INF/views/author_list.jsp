@@ -10,6 +10,9 @@
 <html>
 <head>
     <title>Title</title>
+    <style>table, th, td {
+        border: 1px solid black; padding: 2px; text-align: center;
+    }</style>
 </head>
 <body>
 <table>
@@ -18,6 +21,8 @@
         <td>Last Name</td>
         <td>PESEL</td>
         <td>E-mail</td>
+        <td>Delete</td>
+        <td>Edit</td>
     </tr>
     <%--@elvariable id="book" type="pl.coderslab.model.Book"--%>
     <c:forEach items="${authors}" var="author">

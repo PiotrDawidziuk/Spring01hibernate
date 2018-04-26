@@ -24,8 +24,8 @@
     <p><label for="description">Description</label></p>
     <p><form:input path="description" name="description"/></p>
     <p><form:errors path="description" cssClass="error"/></p>
-    <p><form:select path="publisher" items="${publishers}" itemValue="id" itemLabel="name"/></p>
-    <p><form:select path="author" items="${authors}" itemValue="id" itemLabel="lastName"/></p>
+    <p><form:select path="publisher" items="${publishers}" itemValue="name" itemLabel="name"/></p>
+    <p><form:select path="author" items="${authors}" itemValue="lastName" itemLabel="lastName"/></p>
     <button type="submit">Submit</button>
 </form:form>
 <p><a href="/"><button>Powrót do Menu</button></a>

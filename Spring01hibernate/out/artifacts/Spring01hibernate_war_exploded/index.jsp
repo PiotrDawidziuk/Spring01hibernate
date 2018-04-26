@@ -18,6 +18,7 @@
   <p><a href="/list"><button>Lista książek</button></a>
     <a href="/lista"><button>Lista Autorów</button></a>
     <a href="/listp"><button>Lista Wydawców</button></a></p>
-
+  <br>
+  <p><a href="/testowy"><button>TEST</button></a></p>
   </body>
 </html>

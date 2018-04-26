@@ -129,5 +129,12 @@ public class BookController {
         return authorDao.getAuthors();
     }
 
+    @GetMapping("/testowy")
+    public String testowy (Model model){
+        List<Book> books = bookRepository.findAllByPublisher("PWN");
+        model.addAttribute("books", books);
+        return "book_list";
+    }
+
 
 }
