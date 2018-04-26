@@ -3,13 +3,16 @@ package pl.coderslab.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Publisher;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
 import pl.coderslab.repositories.PublisherDao;
+import pl.coderslab.repositories.PublisherRepository;
 
 import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
 import javax.validation.Validator;
 import java.util.List;
 import java.util.Set;
@@ -21,6 +24,8 @@ public class PublisherController {
 
     @Autowired
     private PublisherDao publisherDao;
+    @Autowired
+    private PublisherRepository publisherRepository;
 
     @RequestMapping("/addpublisher")
     @ResponseBody
@@ -68,11 +73,9 @@ public class PublisherController {
         return "form/publisher";
     }
     @RequestMapping(value = "/addnewp", method = RequestMethod.POST)
-    public String saveNew(@ModelAttribute Publisher publisher, Model model) {
-        Set<ConstraintViolation<Publisher>> violations = validator.validate(publisher);
-        if (!violations.isEmpty()) {
-            model.addAttribute("errors", violations);
-            return "validate";
+    public String saveNew(@Valid Publisher publisher, BindingResult result) {
+        if (result.hasErrors()) {
+            return "form/publisher";
         }else{
             publisherDao.savePublisher(publisher);
             return "redirect:/listp";
@@ -86,5 +89,4 @@ public class PublisherController {
         return "publisher_list";
 
     }
-
 }

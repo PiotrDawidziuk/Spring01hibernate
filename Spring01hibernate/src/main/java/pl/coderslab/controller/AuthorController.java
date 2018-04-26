@@ -3,16 +3,17 @@ package pl.coderslab.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 import pl.coderslab.repositories.AuthorDao;
+import pl.coderslab.repositories.AuthorRepository;
 import pl.coderslab.repositories.BookDao;
 
-import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
 import javax.validation.Validator;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class AuthorController {
@@ -24,6 +25,10 @@ public class AuthorController {
 
     @Autowired
     private BookDao bookDao;
+
+    @Autowired
+    AuthorRepository authorRepository;
+
 
     @RequestMapping("/addauthor")
     @ResponseBody
@@ -71,11 +76,9 @@ public class AuthorController {
         return "form/author";
     }
     @RequestMapping(value = "/addnewa", method = RequestMethod.POST)
-    public String saveNew(@ModelAttribute Author author, Model model) {
-        Set<ConstraintViolation<Author>> violations = validator.validate(author);
-        if (!violations.isEmpty()) {
-            model.addAttribute("errors", violations);
-            return "validate";
+    public String saveNew(@Valid Author author, BindingResult result) {
+        if (result.hasErrors()) {
+            return "form/author";
         }else{
             authorDao.saveAuthor(author);
             return "redirect:/lista";

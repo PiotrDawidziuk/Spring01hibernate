@@ -10,20 +10,30 @@
 <html>
 <head>
     <title>Title</title>
+    <style> .error{color:red; background-color: yellow;}</style>
+
 </head>
 <body>
 <%--@elvariable id="author" type="pl.coderslab.model.Book"--%>
 <form:form method="post" modelAttribute="author">
-    <label for="firstName">First Name</label>
-    <form:input path="firstName" name="firstName"/>
-    <label for="lastName">Last Name</label>
-    <form:input path="lastName" name="lastName"/>
-    <label for="pesel">Pesel</label>
-    <form:input path="pesel" name="pesel"/>
-    <label for="email">E-Mail</label>
-    <form:input path="email" name="email"/>
-  
+    <p><label for="firstName">First Name</label></p>
+    <p><form:input path="firstName" name="firstName"/></p>
+    <p><form:errors path="firstName" cssClass="error"/></p>
+    <p><label for="lastName">Last Name</label></p>
+    <p><form:input path="lastName" name="lastName"/></p>
+    <p><form:errors path="lastName" cssClass="error"/></p>
+    <p><label for="pesel">Pesel</label></p>
+    <p><form:input path="pesel" name="pesel"/></p>
+    <p><form:errors path="pesel" cssClass="error"/></p>
+    <p><label for="email">E-Mail</label></p>
+    <p><form:input path="email" name="email"/></p>
+    <p><form:errors path="email" cssClass="error"/></p>
+
     <button type="submit">Submit</button>
+
+
 </form:form>
+
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

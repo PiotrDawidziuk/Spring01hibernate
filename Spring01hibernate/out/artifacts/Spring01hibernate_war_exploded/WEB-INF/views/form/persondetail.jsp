@@ -45,5 +45,6 @@
 
     <input type="submit" value="submit"/>
 </form:form>
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

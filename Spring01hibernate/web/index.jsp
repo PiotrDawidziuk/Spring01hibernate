@@ -11,6 +11,13 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <p><a href="/addnew"><button>Dodaj Książkę</button></a>
+  <a href="/addnewa"><button>Dodaj Autora</button></a>
+  <a href="/addnewp"><button>Dodaj Wydawcę</button></a></p>
+
+  <p><a href="/list"><button>Lista książek</button></a>
+    <a href="/lista"><button>Lista Autorów</button></a>
+    <a href="/listp"><button>Lista Wydawców</button></a></p>
+
   </body>
 </html>

@@ -25,10 +25,11 @@
             <td>${book.title}</td>
             <td>${book.rating}</td>
             <td>${book.description}</td>
-            <td> <a href="/deletebook/${book.id}">usuń</a></td>
-            <td> <a href="/update/${book.id}">Edytuj</a></td>
+            <td> <a href="/deletebook/${book.id}"><button>usuń</button></a></td>
+            <td> <a href="/update/${book.id}"><button>Edytuj</button></a></td>
         </tr>
     </c:forEach>
 </table>
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

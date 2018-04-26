@@ -24,5 +24,6 @@
     <form:select path="author" items="${authors}" itemValue="id" itemLabel="lastName"/>
     <button type="submit">Submit</button>
 </form:form>
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

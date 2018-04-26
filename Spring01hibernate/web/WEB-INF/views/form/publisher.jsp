@@ -10,17 +10,24 @@
 <html>
 <head>
     <title>Title</title>
+    <style> .error{color:red; background-color: yellow;}</style>
+
 </head>
 <body>
 <%--@elvariable id="publisher" type="pl.coderslab.model.Book"--%>
 <form:form method="post" modelAttribute="publisher">
-    <label for="name">Name</label>
-    <form:input path="name" name="name"/>
-    <label for="nip">NIP</label>
-    <form:input path="nip" name="nip"/>
-    <label for="regon">REGON</label>
-    <form:input path="regon" name="regon"/>
+    <p><label for="name">Name</label></p>
+    <p><form:input path="name" name="name"/></p>
+    <p><form:errors path="name" cssClass="error"/></p>
+    <p><label for="nip">NIP</label></p>
+    <p><form:input path="nip" name="nip"/></p>
+    <p><form:errors path="nip" cssClass="error"/></p>
+    <p><label for="regon">REGON</label></p>
+    <p><form:input path="regon" name="regon"/></p>
+    <p><form:errors path="regon" cssClass="error"/></p>
+
     <button type="submit">Submit</button>
 </form:form>
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

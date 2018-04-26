@@ -29,5 +29,6 @@
         </tr>
     </c:forEach>
 </table>
+<p><a href="/"><button>Powrót do Menu</button></a>
 </body>
 </html>

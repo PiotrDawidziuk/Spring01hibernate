@@ -10,6 +10,7 @@ import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
 import pl.coderslab.repositories.AuthorDao;
 import pl.coderslab.repositories.BookDao;
+import pl.coderslab.repositories.BookRepository;
 import pl.coderslab.repositories.PublisherDao;
 
 import javax.validation.ConstraintViolation;
@@ -29,6 +30,8 @@ public class BookController {
     private AuthorDao authorDao;
     @Autowired
     Validator validator;
+    @Autowired
+    BookRepository bookRepository;
 
     @RequestMapping("/add")
     @ResponseBody
@@ -111,7 +114,7 @@ public class BookController {
     }
     @GetMapping("/list")
     public String allBooks(Model model) {
-        List<Book> books = bookDao.getBooks();
+        List<Book> books = bookRepository.findAll();
         model.addAttribute("books", books);
         return "book_list";
 
